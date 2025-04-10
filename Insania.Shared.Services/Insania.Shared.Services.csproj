@@ -6,10 +6,11 @@
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Description>Пакет общих сервисов проекта "Инсания"</Description>
+    <VersionPrefix>1.0.1</VersionPrefix>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Insania.Shared.Contracts" Version="1.0.0" />
+    <PackageReference Include="Insania.Shared.Contracts" Version="1.0.1" />
   </ItemGroup>
 
 </Project>

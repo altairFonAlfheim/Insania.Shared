@@ -6,6 +6,7 @@
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Description>Пакет общих интерфейсов проекта "Инсания"</Description>
+    <VersionPrefix>1.0.1</VersionPrefix>
   </PropertyGroup>
 
 </Project>
