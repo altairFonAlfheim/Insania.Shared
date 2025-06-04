@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Insania.Shared.Entities", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Insania.Shared.Models", "Insania.Shared.Models\Insania.Shared.Models.csproj", "{B6B5D14F-DF56-4E08-BB5C-B3A6FA9298DC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Insania.Shared.Middleware", "Insania.Shared.Middleware\Insania.Shared.Middleware.csproj", "{AAD30036-36AB-4BE5-A68B-8933EFC34011}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{B6B5D14F-DF56-4E08-BB5C-B3A6FA9298DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6B5D14F-DF56-4E08-BB5C-B3A6FA9298DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6B5D14F-DF56-4E08-BB5C-B3A6FA9298DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAD30036-36AB-4BE5-A68B-8933EFC34011}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAD30036-36AB-4BE5-A68B-8933EFC34011}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAD30036-36AB-4BE5-A68B-8933EFC34011}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAD30036-36AB-4BE5-A68B-8933EFC34011}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
