@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Description>Пакет общих базовых сущностей проекта "Инсания"</Description>
-    <VersionPrefix>1.0.5</VersionPrefix>
+    <VersionPrefix>1.0.6</VersionPrefix>
     <PackageIcon>1024x1024.png</PackageIcon>
   </PropertyGroup>
 
@@ -19,9 +19,9 @@
 
   <ItemGroup>
     <PackageReference Include="Insania.Shared.Contracts" Version="1.0.3" />
-    <PackageReference Include="Insania.Shared.Messages" Version="1.0.2" />
+    <PackageReference Include="Insania.Shared.Messages" Version="1.0.3" />
     <PackageReference Include="Insania.Shared.Services" Version="1.0.3" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.6" />
   </ItemGroup>
 
 </Project>

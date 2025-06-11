@@ -5,7 +5,8 @@
 /// </summary>
 /// <param cref="long" name="id">Идентификатор сущности</param>
 /// <param cref="string" name="name">Наименование сущности</param>
-public class BaseResponseListItem(long id, string name)
+/// <param cref="string?" name="description">Описание сущности</param>
+public class BaseResponseListItem(long id, string name, string? description = null)
 {
     /// <summary>
     /// Идентификатор сущности
@@ -16,4 +17,9 @@ public class BaseResponseListItem(long id, string name)
     /// Наименование сущности
     /// </summary>
     public string? Name { get; set; } = name;
+
+    /// <summary>
+    /// Описание сущности
+    /// </summary>
+    public string? Description { get; set; } = description;
 }

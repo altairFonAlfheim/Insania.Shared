@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Description>Пакет общих моделей проекта "Инсания"</Description>
-    <VersionPrefix>1.0.3</VersionPrefix>
+    <VersionPrefix>1.0.4</VersionPrefix>
     <PackageIcon>1024x1024.png</PackageIcon>
   </PropertyGroup>
 
