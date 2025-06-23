@@ -29,7 +29,7 @@ public abstract class EntityCoordinate : Reestr
     /// <param cref="int" name="zoom">Коэффициент масштаба отображения сущности</param>
     /// <param cref="Coordinate" name="coordinate">Координата</param>
     /// <param cref="DateTime?" name="dateDeleted">Дата удаления</param>
-    public EntityCoordinate(string username, bool isSystem, Coordinate coordinate, Point center, int zoom, DateTime? dateDeleted = null) : base(username, isSystem, dateDeleted)
+    public EntityCoordinate(string username, bool isSystem, Point center, int zoom, Coordinate coordinate, DateTime? dateDeleted = null) : base(username, isSystem, dateDeleted)
     {
         Center = center;
         Zoom = zoom;
@@ -47,7 +47,7 @@ public abstract class EntityCoordinate : Reestr
     /// <param cref="int" name="zoom">Коэффициент масштаба отображения сущности</param>
     /// <param cref="Coordinate" name="coordinate">Координата</param>
     /// <param cref="DateTime?" name="dateDeleted">Дата удаления</param>
-    public EntityCoordinate(long id, string username, bool isSystem, Coordinate coordinate, Point center, int zoom, DateTime? dateDeleted = null) : base(id, username, isSystem, dateDeleted)
+    public EntityCoordinate(long id, string username, bool isSystem, Point center, int zoom, Coordinate coordinate, DateTime? dateDeleted = null) : base(id, username, isSystem, dateDeleted)
     {
         Center = center;
         Zoom = zoom;
