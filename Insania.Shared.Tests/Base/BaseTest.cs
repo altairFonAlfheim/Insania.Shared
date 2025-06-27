@@ -21,6 +21,7 @@ public class BaseTest
 
         //Внедрение зависимостей сервисов
         services.AddScoped<ITransliterationSL, TransliterationSL>(); //сервис транслитерации
+        services.AddScoped<IPolygonParserSL, PolygonParserSL>(); //сервис преобразования полигона
 
         //Создание поставщика сервисов
         ServiceProvider = services.BuildServiceProvider();
