@@ -26,12 +26,14 @@ public abstract class EntityCoordinate : Reestr
     /// <param cref="string" name="username">Логин пользователя, выполняющего действие</param>
     /// <param cref="bool" name="isSystem">Признак системной записи</param>
     /// <param cref="Point" name="center">Координаты точки центра сущности</param>
+    /// <param cref="double" name="area">Площадь сущности</param>
     /// <param cref="int" name="zoom">Коэффициент масштаба отображения сущности</param>
     /// <param cref="Coordinate" name="coordinate">Координата</param>
     /// <param cref="DateTime?" name="dateDeleted">Дата удаления</param>
-    public EntityCoordinate(string username, bool isSystem, Point center, int zoom, Coordinate coordinate, DateTime? dateDeleted = null) : base(username, isSystem, dateDeleted)
+    public EntityCoordinate(string username, bool isSystem, Point center, double area, int zoom, Coordinate coordinate, DateTime? dateDeleted = null) : base(username, isSystem, dateDeleted)
     {
         Center = center;
+        Area = area;
         Zoom = zoom;
         CoordinateId = coordinate.Id;
         CoordinateEntity = coordinate;
@@ -44,12 +46,14 @@ public abstract class EntityCoordinate : Reestr
     /// <param cref="string" name="username">Логин пользователя, выполняющего действие</param>
     /// <param cref="bool" name="isSystem">Признак системной записи</param>
     /// <param cref="Point" name="center">Координаты точки центра сущности</param>
+    /// <param cref="double" name="area">Площадь сущности</param>
     /// <param cref="int" name="zoom">Коэффициент масштаба отображения сущности</param>
     /// <param cref="Coordinate" name="coordinate">Координата</param>
     /// <param cref="DateTime?" name="dateDeleted">Дата удаления</param>
-    public EntityCoordinate(long id, string username, bool isSystem, Point center, int zoom, Coordinate coordinate, DateTime? dateDeleted = null) : base(id, username, isSystem, dateDeleted)
+    public EntityCoordinate(long id, string username, bool isSystem, Point center, double area, int zoom, Coordinate coordinate, DateTime? dateDeleted = null) : base(id, username, isSystem, dateDeleted)
     {
         Center = center;
+        Area = area;
         Zoom = zoom;
         CoordinateId = coordinate.Id;
         CoordinateEntity = coordinate;
@@ -63,6 +67,13 @@ public abstract class EntityCoordinate : Reestr
     [Column("center")]
     [Comment("Координаты точки центра сущности")]
     public Point Center { get; private set; }
+
+    /// <summary>
+    /// Площадь сущности
+    /// </summary>
+    [Column("area")]
+    [Comment("Площадь сущности")]
+    public double Area { get; private set; }
 
     /// <summary>
     /// Коэффициент масштаба отображения сущности
@@ -95,10 +106,16 @@ public abstract class EntityCoordinate : Reestr
     public void SetCenter(Point center) => Center = center;
 
     /// <summary>
-    /// Метод записи коэффициент масштаба отображения
+    /// Метод записи коэффициент масштаба отображения сущности
     /// </summary>
     /// <param cref="int" name="zoom">Коэффициент масштаба отображения сущности</param>
     public void SetZoom(int zoom) => Zoom = zoom;
+
+    /// <summary>
+    /// Метод записи площади сущности
+    /// </summary>
+    /// <param cref="double" name="area">Площадь сущности</param>
+    public void SetArea(double area) => Area = area;
 
     /// <summary>
     /// Метод записи координаты
