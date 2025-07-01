@@ -29,7 +29,7 @@ public class PolygonParserSLTests : BaseTest
 
     #region Зависимости
     /// <summary>
-    /// Сервис транслитерации
+    /// Сервис преобразования полигона
     /// </summary>
     private IPolygonParserSL PolygonParserSL { get; set; }
     #endregion
@@ -60,7 +60,7 @@ public class PolygonParserSLTests : BaseTest
     /// Тест метода преобразования из массива дробных значений в полигон
     /// </summary>
     /// <param cref="string" name="coordinates">Координаты для преобразования</param>
-    [Test, TestCase("[[[0, 0],[0, 20],[20, 20],[20, 0],[0, 0]],[[5, 5],[5, 15],[15, 15],[15, 5],[5, 5]]]")]
+    [TestCase("[[[0, 0],[0, 20],[20, 20],[20, 0],[0, 0]],[[5, 5],[5, 15],[15, 15],[15, 5],[5, 5]]]")]
     public void FromDoubleArrayToPolygonTest(string coordinates)
     {
         try
