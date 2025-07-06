@@ -69,7 +69,7 @@ public class PolygonParserSLTests : BaseTest
             double[][][]? request = JsonSerializer.Deserialize<double[][][]>(coordinates);
 
             //Получение результата
-            Polygon? result = PolygonParserSL.FromDoubleArrayToPolygon(request!);
+            Polygon? result = PolygonParserSL.FromDoubleArrayToPolygon(request);
 
             //Проверка результата
             Assert.That(result, Is.Not.Null);
@@ -78,6 +78,49 @@ public class PolygonParserSLTests : BaseTest
                 Assert.That(result.IsValid, Is.True);
                 Assert.That(result.Shell.Coordinates.Length, Is.Positive);
             }
+        }
+        catch (Exception)
+        {
+            //Проброс исключения
+            throw;
+        }
+    }
+    
+    /// <summary>
+    /// Тест метода преобразования из массива дробных значений в полигон
+    /// </summary>
+    /// <param cref="string" name="coordinates">Координаты для преобразования</param>
+    [TestCase("[[[0, 0],[0, 20],[20, 20],[20, 0],[0, 0]],[[5, 5],[5, 15],[15, 15],[15, 5],[5, 5]]]")]
+    public void FromPolygonToDoubleArrayTest(string coordinates)
+    {
+        try
+        {
+            //Формирование запроса
+            Polygon? request = null;
+            switch (coordinates)
+            {
+                case "[[[0, 0],[0, 20],[20, 20],[20, 0],[0, 0]],[[5, 5],[5, 15],[15, 15],[15, 5],[5, 5]]]":
+                    Coordinate[] shell = [new Coordinate(0, 0), new Coordinate(0, 20), new Coordinate(20, 20), new Coordinate(20, 0), new Coordinate(0, 0)];
+                    LinearRing[] holes = new LinearRing[1];
+                    for (int i = 0; i < 1; i++)
+                    {
+                        Coordinate[] hole = [new Coordinate(5, 5), new Coordinate(5, 15), new Coordinate(15, 15), new Coordinate(15, 5), new Coordinate(5, 5)];
+                        holes[i] = new LinearRing(hole);
+                    }
+                    request = new Polygon(new LinearRing(shell), holes);
+                    break;
+
+            }
+
+            //Получение результата
+            double[][][]? result = PolygonParserSL.FromPolygonToDoubleArray(request);
+
+            //Формирование переменной сравнения
+            double[][][]? compare = JsonSerializer.Deserialize<double[][][]>(coordinates);
+
+            //Проверка результата
+            Assert.That(result, Is.Not.Null);
+            Assert.That(result, Is.EqualTo(compare));
         }
         catch (Exception)
         {

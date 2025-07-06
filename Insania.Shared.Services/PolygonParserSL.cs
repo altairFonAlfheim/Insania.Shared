@@ -14,10 +14,10 @@ public class PolygonParserSL : IPolygonParserSL
     /// <summary>
     /// Метод преобразования из массива дробных значений в полигон
     /// </summary>
-    /// <param cref="double[][][]" name="coordinates">Координаты для преобразования</param>
-    /// <returns cref="Polygon">Полигон</returns>
+    /// <param cref="double[][][]?" name="coordinates">Координаты для преобразования</param>
+    /// <returns cref="Polygon?">Полигон</returns>
     /// <exception cref="Exception">Исключение</exception>
-    public Polygon FromDoubleArrayToPolygon(double[][][] coordinates)
+    public Polygon? FromDoubleArrayToPolygon(double[][][]? coordinates)
     {
         //Проверки
         if (coordinates == null || coordinates.Length == 0) throw new Exception(ErrorMessages.EmptyCoordinates);
@@ -41,6 +41,38 @@ public class PolygonParserSL : IPolygonParserSL
 
         //Возврат полигона
         return new Polygon(shell, holes);
+    }
+
+    /// <summary>
+    /// Метод преобразования из полигона в массив дробных значений
+    /// </summary>
+    /// <param cref="Polygon?" name="coordinates">Полигон для преобразования</param>
+    /// <returns cref="double[][][]?">Координаты</returns>
+    /// <exception cref="Exception">Исключение</exception>
+    public double[][][]? FromPolygonToDoubleArray(Polygon? polygon)
+    {
+        //Проверки
+        if (polygon == null) return null;
+
+        //Получение внешнего и внутренних полигонов
+        var shell = polygon.Shell;
+        var holes = polygon.Holes;
+
+        //Инициализация массива результатов
+        var result = new double[holes.Length + 1][][];
+
+        //Преобразование внешнего полигона
+        result[0] = ConvertLinearRingToDoubleArray(shell);
+
+        //Проход по внутренним полигонам
+        for (int i = 0; i < holes.Length; i++)
+        {
+            //Создание и добавление в массив внутреннего полигона
+            result[i + 1] = ConvertLinearRingToDoubleArray(holes[i]);
+        }
+
+        //Возврат результата
+        return result;
     }
     #endregion
 
@@ -71,6 +103,31 @@ public class PolygonParserSL : IPolygonParserSL
 
         //Возврат результата
         return new LinearRing(coordinates);
+    }
+
+    /// <summary>
+    /// Метод преобразования замкнутого кольца в массив дробных значений
+    /// </summary>
+    /// <param cref="LinearRing" name="ring">Замкнутое кольцо</param>
+    /// <returns cref="double[][]">Массив координат</returns>
+    /// <exception cref="Exception">Исключение</exception>
+    private static double[][] ConvertLinearRingToDoubleArray(LinearRing ring)
+    {
+        //Получение массива координат
+        var coordinates = ring.Coordinates;
+
+        //Создание переменной результат
+        var result = new double[coordinates.Length][];
+
+        //Проход по массиву координат
+        for (int i = 0; i < coordinates.Length; i++)
+        {
+            //Добавление координат в результат
+            result[i] = [coordinates[i].X, coordinates[i].Y];
+        }
+
+        //Возврат результата
+        return result;
     }
     #endregion
 }
