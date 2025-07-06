@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using NetTopologySuite.Geometries;
 
 using Insania.Shared.Contracts.Services;
+using Insania.Shared.Messages;
 using Insania.Shared.Tests.Base;
 
 namespace Insania.Shared.Tests.Services;
@@ -109,6 +110,7 @@ public class PolygonParserSLTests : BaseTest
                     }
                     request = new Polygon(new LinearRing(shell), holes);
                     break;
+                default: throw new Exception(ErrorMessages.NotFoundTestCase);
 
             }
 
