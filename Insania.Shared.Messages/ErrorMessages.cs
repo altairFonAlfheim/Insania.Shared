@@ -14,4 +14,5 @@ public static class ErrorMessages
     public const string IncorrectCoordinates = "Некорректные координаты";
     public const string NotExecutedScript = "Не выполнен скрипт";
     public const string NotFoundTestCase = "Не найден кейс тестирования";
+    public const string NotFoundCurrentUser = "Не найден текущий пользователь";
 }
