@@ -52,6 +52,13 @@ public abstract class Compendium : Entity
     }
     #endregion
 
+    #region Зависимости
+    /// <summary>
+    /// Сервис транслитерации
+    /// </summary>
+    private ITransliterationSL? Transliteration { get; set; }
+    #endregion
+
     #region Поля
     /// <summary>
     /// Наименование
@@ -66,13 +73,6 @@ public abstract class Compendium : Entity
     [Column("alias")]
     [Comment("Псевдоним")]
     public string Alias { get; private set; }
-    #endregion
-
-    #region Зависимости
-    /// <summary>
-    /// Сервис транслитерации
-    /// </summary>
-    private ITransliterationSL? Transliteration { get; set; }
     #endregion
 
     #region Методы
