@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageReleaseNotes>Пакет общих сообщений проекта "Инсания"</PackageReleaseNotes>
-    <VersionPrefix>1.0.6</VersionPrefix>
+    <VersionPrefix>1.0.7</VersionPrefix>
     <PackageIcon>1024x1024.png</PackageIcon>
   </PropertyGroup>
 

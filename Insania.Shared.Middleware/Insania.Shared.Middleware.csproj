@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Description>Пакет общих конвееров запросов проекта "Инсания"</Description>
-    <VersionPrefix>1.0.1</VersionPrefix>
+    <VersionPrefix>1.1.0</VersionPrefix>
     <PackageIcon>1024x1024.png</PackageIcon>
   </PropertyGroup>
 
@@ -19,7 +19,11 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.OpenApi" Version="1.6.24" />
+    
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="9.0.1" />
+    
+    <PackageReference Include="Insania.Shared.Messages" Version="1.0.7" />
+    <PackageReference Include="Insania.Shared.Models" Version="1.0.4" />
   </ItemGroup>
 
 </Project>

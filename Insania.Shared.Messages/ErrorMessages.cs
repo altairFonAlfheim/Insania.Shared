@@ -7,12 +7,14 @@ public static class ErrorMessages
 {
     public const string EmptyConnectionString = "Пустая строка подключения к базе данных";
     public const string EmptyCoordinates = "Пустые координаты";
+    public const string EmptyPath = "Пустой путь";
     public const string EmptyScriptsPath = "Пустой путь к скриптам";
     public const string EmptyRequest = "Пустой запрос";
     public const string Error = "Ошибка";
     public const string FailedTransliteration = "Не удалось транслитерировать";
     public const string IncorrectCoordinates = "Некорректные координаты";
     public const string NotExecutedScript = "Не выполнен скрипт";
+    public const string NotFoundAccessRight = "Не найдено право доступа";
     public const string NotFoundTestCase = "Не найден кейс тестирования";
     public const string NotFoundCurrentUser = "Не найден текущий пользователь";
 }
