@@ -26,14 +26,13 @@ public abstract class Log : Reestr
     /// <param cref="bool" name="isSystem">Признак системной записи</param>
     /// <param cref="string" name="method">Наименование вызываемого метода</param>
     /// <param cref="string" name="type">Тип вызываемого метода</param>
-    /// <param cref="string" name="dataIn">Данные на вход</param>
+    /// <param cref="string?" name="dataIn">Данные на вход</param>
     /// <param cref="DateTime?" name="dateDeleted">Дата удаления</param>
-    public Log(string username, bool isSystem, string method, string type, string? dataIn = null, int? statusCode = null, DateTime? dateDeleted = null) : base(username, isSystem, dateDeleted)
+    public Log(string username, bool isSystem, string method, string type, string? dataIn = null, DateTime? dateDeleted = null) : base(username, isSystem, dateDeleted)
     {
         Method = method;
         DataIn = dataIn;
         Type = type;
-        StatusCode = statusCode;
         DateStart = DateTime.UtcNow;
     }
 
@@ -46,13 +45,13 @@ public abstract class Log : Reestr
     /// <param cref="string" name="method">Наименование вызываемого метода</param>
     /// <param cref="string" name="type">Тип вызываемого метода</param>
     /// <param cref="string" name="dataIn">Данные на вход</param>
+    /// <param cref="int?" name="statusCode">Код статуса</param>
     /// <param cref="DateTime?" name="dateDeleted">Дата удаления</param>
-    public Log(long id, string username, bool isSystem, string method, string type, string? dataIn = null, int? statusCode = null, DateTime? dateDeleted = null) : base(id, username, isSystem, dateDeleted)
+    public Log(long id, string username, bool isSystem, string method, string type, string? dataIn = null, DateTime? dateDeleted = null) : base(id, username, isSystem, dateDeleted)
     {
         Method = method;
         DataIn = dataIn;
         Type = type;
-        StatusCode = statusCode;
         DateStart = DateTime.UtcNow;
     }
     #endregion
