@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Description>Пакет общих базовых сущностей проекта "Инсания"</Description>
-    <VersionPrefix>1.0.20</VersionPrefix>
+    <VersionPrefix>1.1.1</VersionPrefix>
     <PackageIcon>1024x1024.png</PackageIcon>
   </PropertyGroup>
 

@@ -28,11 +28,12 @@ public abstract class Log : Reestr
     /// <param cref="string" name="type">Тип вызываемого метода</param>
     /// <param cref="string" name="dataIn">Данные на вход</param>
     /// <param cref="DateTime?" name="dateDeleted">Дата удаления</param>
-    public Log(string username, bool isSystem, string method, string type, string? dataIn = null, DateTime? dateDeleted = null) : base(username, isSystem, dateDeleted)
+    public Log(string username, bool isSystem, string method, string type, string? dataIn = null, int? statusCode = null, DateTime? dateDeleted = null) : base(username, isSystem, dateDeleted)
     {
         Method = method;
         DataIn = dataIn;
         Type = type;
+        StatusCode = statusCode;
         DateStart = DateTime.UtcNow;
     }
 
@@ -46,11 +47,12 @@ public abstract class Log : Reestr
     /// <param cref="string" name="type">Тип вызываемого метода</param>
     /// <param cref="string" name="dataIn">Данные на вход</param>
     /// <param cref="DateTime?" name="dateDeleted">Дата удаления</param>
-    public Log(long id, string username, bool isSystem, string method, string type, string? dataIn = null, DateTime? dateDeleted = null) : base(id, username, isSystem, dateDeleted)
+    public Log(long id, string username, bool isSystem, string method, string type, string? dataIn = null, int? statusCode = null, DateTime? dateDeleted = null) : base(id, username, isSystem, dateDeleted)
     {
         Method = method;
         DataIn = dataIn;
         Type = type;
+        StatusCode = statusCode;
         DateStart = DateTime.UtcNow;
     }
     #endregion
@@ -104,6 +106,13 @@ public abstract class Log : Reestr
     [Column("data_out", TypeName = "jsonb")]
     [Comment("Данные на выход")]
     public string? DataOut { get; private set; }
+
+    /// <summary>
+    /// Код статуса
+    /// </summary>
+    [Column("status_code")]
+    [Comment("Код статуса")]
+    public int? StatusCode { get; private set; }
     #endregion
 
     #region Методы
@@ -111,11 +120,13 @@ public abstract class Log : Reestr
     /// Метод записи завершения выполнения
     /// </summary>
     /// <param cref="bool" name="success">Признак успешного выполнения</param>
-    /// <param cref="string" name="dataOut">Данные на выход</param>
-    public void SetEnd(bool success, string? dataOut)
+    /// <param cref="string?" name="dataOut">Данные на выход</param>
+    /// <param cref="int?" name="statusCode">Код статуса</param>
+    public void SetEnd(bool success, string? dataOut, int? statusCode)
     {
         Success = success;
         DataOut = dataOut;
+        StatusCode = statusCode;
         DateEnd = DateTime.UtcNow;
     }
     #endregion
