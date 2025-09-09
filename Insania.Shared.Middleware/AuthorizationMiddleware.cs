@@ -26,7 +26,13 @@ public class AuthorizationMiddleware(RequestDelegate next, List<string> exceptio
     /// <summary>
     /// Исключения, которые не нужно проверять
     /// </summary>
-    private readonly List<string> _exceptions = exceptions;
+    private readonly List<string> _exceptions = [
+        "/swagger/v1/swagger.json",
+        "/swagger",
+        "/swagger/index.html",
+        "/swagger/favicon-16x16.png",
+        ..exceptions
+    ];
     #endregion
 
     #region Основные методы
