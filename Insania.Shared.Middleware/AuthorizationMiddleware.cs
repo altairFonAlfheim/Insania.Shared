@@ -32,6 +32,12 @@ public class AuthorizationMiddleware(RequestDelegate next, List<string> exceptio
         "/swagger",
         "/swagger/index.html",
         "/swagger/favicon-16x16.png",
+        "/swagger/favicon-32x32.png",
+        "/swagger/swagger-ui.css",
+        "/swagger/index.css",
+        "/swagger/swagger-ui-bundle.js",
+        "/swagger/swagger-ui-standalone-preset.js",
+        "/swagger/index.js",
         ..exceptions
     ];
 
