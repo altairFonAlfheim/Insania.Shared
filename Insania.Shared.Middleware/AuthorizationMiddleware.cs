@@ -1,4 +1,5 @@
 ﻿using System.Security.Claims;
+using System.Text.Encodings.Web;
 using System.Text.Json;
 
 using Microsoft.AspNetCore.Http;
@@ -33,6 +34,16 @@ public class AuthorizationMiddleware(RequestDelegate next, List<string> exceptio
         "/swagger/favicon-16x16.png",
         ..exceptions
     ];
+
+    /// <summary>
+    /// Настройки сериализации json
+    /// </summary>
+    private static readonly JsonSerializerOptions _jsonSerializerOptions = new()
+    {
+        PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower,
+        Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
+        WriteIndented = false
+    };
     #endregion
 
     #region Основные методы
@@ -106,11 +117,7 @@ public class AuthorizationMiddleware(RequestDelegate next, List<string> exceptio
         BaseResponseError response = new(message);
 
         //Сериализация ответа
-        string json = JsonSerializer.Serialize(response, new JsonSerializerOptions
-        {
-            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-            WriteIndented = false
-        });
+        string json = JsonSerializer.Serialize(response, _jsonSerializerOptions);
 
         //Запись ответа
         await context.Response.WriteAsync(json);
