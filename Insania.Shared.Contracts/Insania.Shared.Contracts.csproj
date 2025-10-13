@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Description>Пакет общих интерфейсов проекта "Инсания"</Description>
-    <VersionPrefix>1.0.8</VersionPrefix>
+    <VersionPrefix>1.0.9</VersionPrefix>
     <PackageIcon>1024x1024.png</PackageIcon>
   </PropertyGroup>
 
@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Npgsql.NetTopologySuite" Version="9.0.3" />
+    <PackageReference Include="Npgsql.NetTopologySuite" Version="9.0.4" />
   </ItemGroup>
 
 </Project>
