@@ -9,6 +9,7 @@ public static class ErrorMessages
     public const string EmptyConnectionString = "Пустая строка подключения к базе данных";
     public const string EmptyCoordinates = "Пустые координаты";
     public const string EmptyPath = "Пустой путь";
+    public const string EmptyParameter = "Пустой параметр";
     public const string EmptyScriptsPath = "Пустой путь к скриптам";
     public const string EmptyRequest = "Пустой запрос";
     public const string Error = "Ошибка";
