@@ -5,6 +5,7 @@
 /// </summary>
 public static class ErrorMessages
 {
+    public const string EmptyAlias = "Пустой псевдоним";
     public const string EmptyConnectionString = "Пустая строка подключения к базе данных";
     public const string EmptyCoordinates = "Пустые координаты";
     public const string EmptyPath = "Пустой путь";
